@@ -127,7 +127,7 @@ let pdf = window.PKIWebSDK.Utils.base642Ab('JVBERi0xLjMKJcTl8uXrp/Og0MTGCjQgMCBv
 
 window.signPDF("123456", budiP12, pdf, (err, signedPDF) => {
   console.log(err);
-  // Uncomment to download
+
   window.verifyPDF(signedPDF, (err, verifyResult) => {
     console.log(err);
     console.log(verifyResult[0].signedData.getData().signerInfo[0].authenticatedAttributes.digest); // Digest
@@ -143,7 +143,8 @@ window.signPDF("123456", budiP12, pdf, (err, signedPDF) => {
       .then((result) => {
         console.log("isValid: ", result.isValid)
         console.log("isTrusted: ", result.isTrusted)
-        window.toFile(signedPDF)
+        // Uncomment to download
+        //window.toFile(signedPDF)
       })
     })
   });
